@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Paweł Habina — Linux, sieci i kod',
-  description: 'Portfolio Pawła Habiny. Informatyk i programista. SeaByte, ParsHub, Linux i web development.',
+  description:
+    'Portfolio Pawła Habiny. Informatyk i programista. SeaByte, ParsHub, Linux i web development.',
 };
 
 export default function RootLayout({
