@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, CodeXml, MapPin } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, MapPin } from 'lucide-react';
 import { MotionControl } from './motion-control';
 import { About, ProjectShowcase } from './project-showcase';
 
@@ -8,8 +8,8 @@ export default function Home() {
       <a href="#main" className="skip-link">
         Przejdź do treści
       </a>
-      <header className="header wrap">
-        <a href="#" className="brand" aria-label="Paweł Habina — początek">
+      <header id="top" className="header wrap">
+        <a href="#top" className="brand" aria-label="Paweł Habina — początek">
           ph<span>.</span>
         </a>
         <nav aria-label="Nawigacja główna">
@@ -126,7 +126,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="wrap footer">
-        <a className="brand" href="#">
+        <a className="brand" href="#top">
           ph<span>.</span>
         </a>
         <span>© {new Date().getFullYear()} Paweł Habina</span>

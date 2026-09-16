@@ -20,6 +20,8 @@ npm run lint
 npm run build
 ```
 
+Lint obejmuje kod portfolio i używany przełącznik; pozostałe dostarczone komponenty startera nie są modyfikowane.
+
 GitHub Actions wykonuje te kontrole przy pushach na `main`, `codex/**` oraz w pull requestach. Kompilacja tworzy worker Cloudflare w `dist/server/` i zasoby w `dist/client/`. `npm start` uruchamia lokalny podgląd skompilowanego workera.
 
 ## Animacje i wydajność
