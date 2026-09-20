@@ -1,3 +1,4 @@
+import { Typewriter } from './terminal-experience';
 import {
   ArrowUpRight,
   CodeXml,
@@ -13,11 +14,9 @@ export function ProjectShowcase() {
     <>
       <div className="section-heading reveal">
         <div>
-          <p className="eyebrow">01 / WYBRANE PROJEKTY</p>
+          <p className="eyebrow">01 / ls ~/projekty</p>
           <h2>
-            Od pomysłu
-            <br />
-            do <em>działania.</em>
+            <Typewriter text="Wybrane projekty." />
           </h2>
         </div>
         <p className="section-description">
@@ -201,13 +200,9 @@ export function About() {
   return (
     <div className="about-grid">
       <div className="reveal">
-        <p className="eyebrow">02 / CZŁOWIEK ZA KODEM</p>
+        <p className="eyebrow">02 / cat ~/o-mnie</p>
         <h2>
-          Ciekawość.
-          <br />
-          Praktyka.
-          <br />
-          <em>Kolejny krok.</em>
+          <Typewriter text={'Za kodem\nstoi człowiek.'} />
         </h2>
         <div className="about-signature">
           Paweł Habina<span>↗</span>

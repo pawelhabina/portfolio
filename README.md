@@ -1,6 +1,6 @@
 # Paweł Habina — portfolio
 
-Responsywne portfolio informatyka i programisty. Ciemna oprawa, limonkowy akcent, sekcje SeaByte, ParsHub, pozostałych projektów, umiejętności i kontaktu.
+Responsywne portfolio informatyka i programisty. Terminalowa oprawa, zielony akcent, sekcje SeaByte, ParsHub, pozostałych projektów, umiejętności i kontaktu.
 
 ## Rozwój lokalny
 
@@ -26,21 +26,21 @@ GitHub Actions wykonuje te kontrole przy pushach na `main`, `codex/**` oraz w pu
 
 ## Animacje i wydajność
 
-- Przełącznik **Animacje** w nagłówku wyłącza animacje, przejścia oraz płynne przewijanie. Preferencja `ph-motion` jest zapisywana w localStorage i synchronizowana między kartami.
-- Systemowe `prefers-reduced-motion: reduce` włącza tryb lekki i ma pierwszeństwo przed lokalnym ustawieniem.
-- Efekty pojawiania się sekcji, obrót motywu, animacje przycisków i kart korzystają głównie z transform i opacity. Bez WebGL, wideo, ciągłych pętli JavaScript ani nasłuchiwania przewijania.
-- IntersectionObserver uruchamia pojawienie się sekcji jednokrotnie i zatrzymuje dekoracje poza ekranem. Page Visibility API zatrzymuje animacje w nieaktywnej karcie.
-- Tryb lekki usuwa obserwatory i nasłuchiwanie widoczności. Brak dostępu do localStorage lub IntersectionObserver nie blokuje treści.
-- Treść jest renderowana na serwerze i pozostaje dostępna bez JavaScript. Czcionki są serwowane lokalnie przez build.
-
-Testy jednostkowe obejmują preferencje, niedostępne API, zatrzymywanie efektów i zwalnianie obserwatorów. Nie zastępują pomiaru FPS na fizycznym starszym komputerze.
+- Intro w stylu terminala: pięć kolejnych komunikatów, automatyczne przejście po około 2,65 s. Można je pominąć przyciskiem lub Escape. To sekwencja wizualna, nie symulacja pomiarów sieci ani sprzętu.
+- Wybrane nagłówki pojawiają się litera po literze po wejściu w obszar ekranu. Główny opis specjalizacji cyklicznie wpisuje i kasuje frazy z przerwą na przeczytanie.
+- Pełny tekst pozostaje dostępny dla czytników ekranu. Kopia rezerwująca miejsce zapobiega przesuwaniu układu podczas pisania.
+- Przełącznik **Animacje** wyłącza intro, pisanie, kursor, przejścia i płynne przewijanie. Preferencja `ph-motion` jest zapisywana lokalnie i synchronizowana między kartami.
+- `prefers-reduced-motion: reduce` ma pierwszeństwo. Bez JavaScript, localStorage lub IntersectionObserver podstawowa treść pozostaje dostępna.
+- Pisanie jest zatrzymywane poza ekranem, w ukrytej karcie i w trybie lekkim. Obserwatory oraz zegary są sprzątane przy zmianie trybu i odmontowaniu.
+- Bez WebGL, wideo, ciągłych pętli requestAnimationFrame ani nasłuchiwania przewijania.
 
 ## Edycja treści
 
 - `app/page.tsx` — nagłówek, wstęp, kontakt i stopka.
 - `app/project-showcase.tsx` — wyróżnione projekty, linki i opis specjalizacji.
 - `app/globals.css` — kolory, typografia, responsywność i animacje.
-- `app/motion-control.tsx` oraz `lib/motion.mjs` — sterowanie ruchem.
+- `app/terminal-experience.tsx` — sekwencja startowa, kontekst preferencji i animacja pisania.
+- `app/motion-control.tsx` oraz `lib/motion.mjs` — przełącznik i pomocnicze sterowanie ruchem.
 - `app/layout.tsx` — polskie metadane i lokalnie serwowane fonty.
 - `public/favicon.svg` — znak `ph.`.
 

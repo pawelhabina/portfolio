@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight, MapPin } from 'lucide-react';
 import { MotionControl } from './motion-control';
+import { Typewriter } from './terminal-experience';
 import { About, ProjectShowcase } from './project-showcase';
 
 export default function Home() {
@@ -10,46 +11,56 @@ export default function Home() {
       </a>
       <header id="top" className="header wrap">
         <a href="#top" className="brand" aria-label="Paweł Habina — początek">
-          ph<span>.</span>
+          <span className="prompt-symbol">&gt;_</span> ph
         </a>
         <nav aria-label="Nawigacja główna">
-          <a href="#projekty">Projekty</a>
-          <a href="#o-mnie">O mnie</a>
+          <a href="#projekty">~/projekty</a>
+          <a href="#o-mnie">~/o-mnie</a>
           <a href="#kontakt">
-            Kontakt <ArrowUpRight size={14} />
+            ~/kontakt <ArrowUpRight size={14} />
           </a>
         </nav>
         <MotionControl />
       </header>
       <main id="main">
         <section className="hero wrap" aria-labelledby="hero-title">
-          <div className="hero-kicker">
-            <span>
-              <i className="status-dot" /> OSOBISTE PORTFOLIO
+          <div className="terminal-bar">
+            <span className="window-dots" aria-hidden="true">
+              <i />
+              <i />
+              <i />
             </span>
+            <span>pawel@portfolio: ~</span>
+            <span>bash — UTF-8</span>
+          </div>
+          <div className="hero-kicker">
+            <span>SESJA / PORTFOLIO</span>
             <span>
               <MapPin size={13} /> Sopot, Polska
             </span>
           </div>
+          <p className="command-line">
+            <span>pawel@portfolio</span>:<b>~</b>$ whoami
+          </p>
           <div className="hero-title-row">
             <h1 id="hero-title">
-              Paweł
-              <br />
-              <span>
-                Habina<span className="name-dot">.</span>
-              </span>
+              <Typewriter text="Paweł Habina." />
             </h1>
-            <div className="hero-symbol motion-region" aria-hidden="true">
-              <div className="orbit orbit-one" />
-              <div className="orbit orbit-two" />
-              <div className="orbit orbit-three" />
-              <span className="asterisk">✳</span>
-              <span className="orbit-label">CIEKAWOŚĆ NAPĘDZA ROZWÓJ</span>
-            </div>
           </div>
+          <p className="hero-role">
+            <span aria-hidden="true">&gt; </span>
+            <Typewriter
+              text="Informatyk. Programista."
+              phrases={[
+                'Informatyk. Programista.',
+                'Linux. Sieci. Kod.',
+                'Od pomysłu do wdrożenia.',
+              ]}
+              loop
+            />
+          </p>
           <div className="hero-bottom">
             <div>
-              <p className="role">Linux. Sieci. Kod.</p>
               <p className="hero-description">
                 Łączę świat infrastruktury z tworzeniem aplikacji.
                 <br />
@@ -57,13 +68,13 @@ export default function Home() {
               </p>
             </div>
             <a className="button primary" href="#projekty">
-              Zobacz moje projekty <ArrowDown size={18} />
+              ./zobacz-projekty <ArrowDown size={18} />
             </a>
           </div>
           <div className="hero-foot">
-            <span>INFORMATYK & PROGRAMISTA</span>
+            <span>{'// OTWARTY NA NOWE WYZWANIA'}</span>
             <span className="scroll-cue">
-              PRZEWIŃ, POZNAJ MNIE <ArrowDown size={13} />
+              scroll --down <ArrowDown size={13} />
             </span>
           </div>
         </section>
@@ -79,7 +90,7 @@ export default function Home() {
             ].map((x) => (
               <span key={x}>
                 {x}
-                <b aria-hidden="true">✳</b>
+                <b aria-hidden="true">/</b>
               </span>
             ))}
           </div>
@@ -91,16 +102,11 @@ export default function Home() {
           <About />
         </section>
         <section id="kontakt" className="contact wrap reveal motion-region">
-          <p className="eyebrow">03 / KONTAKT</p>
+          <p className="eyebrow">03 / ./kontakt</p>
           <div className="contact-heading">
             <h2>
-              Dobry projekt zaczyna się
-              <br />
-              od <em>rozmowy.</em>
+              <Typewriter text="Porozmawiajmy." />
             </h2>
-            <span className="contact-star" aria-hidden="true">
-              ✳
-            </span>
           </div>
           <p className="section-description">
             Masz pomysł, pytanie albo propozycję współpracy? Napisz.
@@ -127,7 +133,7 @@ export default function Home() {
       </main>
       <footer className="wrap footer">
         <a className="brand" href="#top">
-          ph<span>.</span>
+          <span className="prompt-symbol">&gt;_</span> ph
         </a>
         <span>© {new Date().getFullYear()} Paweł Habina</span>
         <a
