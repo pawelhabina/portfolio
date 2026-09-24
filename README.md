@@ -1,6 +1,6 @@
 # Paweł Habina — portfolio
 
-Responsywne portfolio informatyka i programisty. Terminalowa oprawa, zielony akcent, sekcje SeaByte, ParsHub, pozostałych projektów, umiejętności i kontaktu.
+Responsywne portfolio informatyka i programisty. Terminalowa oprawa, zielony akcent, kafelki SeaByte i ParsHub, umiejętności i kontakt.
 
 ## Rozwój lokalny
 
@@ -33,6 +33,7 @@ GitHub Actions wykonuje te kontrole przy pushach na `main`, `codex/**` oraz w pu
 - `prefers-reduced-motion: reduce` ma pierwszeństwo. Bez JavaScript, localStorage lub IntersectionObserver podstawowa treść pozostaje dostępna.
 - Pisanie jest zatrzymywane poza ekranem, w ukrytej karcie i w trybie lekkim. Obserwatory oraz zegary są sprzątane przy zmianie trybu i odmontowaniu.
 - Bez WebGL, wideo, ciągłych pętli requestAnimationFrame ani nasłuchiwania przewijania.
+- Własny kursor w formie terminalowego celownika działa tylko dla myszy i włączonych animacji. Aktualizuje pozycję najwyżej raz na klatkę podczas ruchu. Pola formularzy, dotyk, klawiatura i tryb ograniczonego ruchu korzystają ze standardowego wskaźnika.
 
 ## Edycja treści
 
@@ -40,11 +41,13 @@ GitHub Actions wykonuje te kontrole przy pushach na `main`, `codex/**` oraz w pu
 - `app/project-showcase.tsx` — wyróżnione projekty, linki i opis specjalizacji.
 - `app/globals.css` — kolory, typografia, responsywność i animacje.
 - `app/terminal-experience.tsx` — sekwencja startowa, kontekst preferencji i animacja pisania.
+- `app/custom-cursor.tsx` — kursor, wykrywanie linków i przywracanie systemowego wskaźnika.
+- `public/projects/` — rzeczywiste zrzuty publicznych ekranów projektów (24.09.2026).
 - `app/motion-control.tsx` oraz `lib/motion.mjs` — przełącznik i pomocnicze sterowanie ruchem.
 - `app/layout.tsx` — polskie metadane i lokalnie serwowane fonty.
 - `public/favicon.svg` — znak `ph.`.
 
-Opisy wykorzystują publiczny profil i repozytoria https://github.com/pawelhabina, stronę https://www.seabyte.pl/ oraz potwierdzony przez autora zakres ParsHub. Okładki projektów są typograficznymi kompozycjami, a nie zrzutami ich interfejsów. ParsHub oznaczono jako projekt w rozwoju; portfolio nie ujawnia danych klientów ani adresu panelu wewnętrznego.
+Opisy wykorzystują profil i repozytoria https://github.com/pawelhabina, stronę https://www.seabyte.pl/ oraz potwierdzony przez autora zakres ParsHub. Każdy projekt ma zrzut ekranu, link do strony i tagi. ParsHub jest projektem w rozwoju; zrzut przedstawia wyłącznie publiczny ekran logowania bez danych klientów. Pozostałe projekty oczekują na wybór autora.
 
 ## Hosting
 

@@ -330,104 +330,81 @@ h2 em {
   min-width: 0;
   background: var(--panel);
 }
-.project-visual {
-  min-height: 300px;
-  aspect-ratio: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* Actual project screenshots, framed as terminal windows. */
+.project-preview {
+  display: block;
   border-bottom: 1px solid var(--line);
+}
+.project-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  font-size: 11px;
+  color: var(--muted);
+  background: #111813;
+}
+.project-window-bar > span:nth-child(2) {
+  flex: 1;
+}
+.project-window-bar .window-dots {
+  gap: 5px;
+}
+.project-window-bar .window-dots i {
+  width: 6px;
+  height: 6px;
+}
+.project-screenshot {
+  position: relative;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
-.seabyte-visual {
-  background: #101b21;
-  color: #a9d6ee;
+.project-screenshot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.pars-visual {
-  background: #151a13;
-  color: #d4e9b3;
-}
-.visual-corner {
+.project-open {
   position: absolute;
-  left: 23px;
-  top: 19px;
-  color: var(--muted);
-  font-size: 12px;
-}
-.visual-corner:before {
-  content: '~/';
-  color: var(--primary);
-}
-.visual-launch {
-  position: absolute;
-  right: 22px;
-  top: 17px;
-  color: var(--muted);
-}
-.sea-wordmark,
-.pars-wordmark {
-  font-size: clamp(33px, 4.5vw, 58px);
-  font-weight: 500;
-  letter-spacing: -0.06em;
-  line-height: 1.2;
+  bottom: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
-}
-.sea-wordmark:before {
-  content: '<';
-  margin-right: 8px;
-  opacity: 0.5;
-}
-.sea-wordmark:after {
-  content: '/>';
-  margin-left: 8px;
-  opacity: 0.5;
-}
-.sea-caption,
-.pars-caption {
-  font-size: 12px;
-  margin-top: 13px;
-  letter-spacing: 0.03em;
-  color: var(--muted);
-}
-.sea-services,
-.pars-modules {
-  display: flex;
-  gap: 19px;
-  margin-top: 27px;
-  color: var(--muted);
-}
-.sea-services span,
-.pars-modules span {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12px;
-}
-.sea-services svg,
-.pars-modules svg {
-  width: 15px;
-  height: 15px;
-}
-.pars-logomark {
-  display: none;
-}
-.pars-wordmark-dot {
+  gap: 10px;
+  padding: 9px 12px;
+  background: #0b120fee;
   color: var(--primary);
+  border: 1px solid var(--primary);
+  font-size: 11px;
+  opacity: 0;
+  transform: translateY(5px);
 }
-.visual-bottom {
-  position: absolute;
-  bottom: 18px;
-  left: 23px;
-  right: 23px;
-  border-top: 1px dashed var(--line);
-  padding-top: 13px;
-  display: flex;
-  justify-content: space-between;
+.project-preview:hover .project-open,
+.project-preview:focus-visible .project-open {
+  opacity: 1;
+  transform: none;
+}
+.project-card:focus-within {
+  border-color: var(--primary);
+}
+.project-index {
   color: var(--muted);
   font-size: 12px;
+}
+.all-projects-link {
+  margin-top: 22px;
+}
+[data-motion='full'] .project-screenshot img {
+  transition: transform 250ms ease;
+}
+[data-motion='full'] .project-open {
+  transition:
+    opacity 180ms,
+    transform 180ms;
+}
+[data-motion='full'] .project-preview:hover img {
+  transform: scale(1.025);
 }
 .project-info {
   padding: 25px;
@@ -471,9 +448,11 @@ h2 em {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
 }
-.project-tags > span {
+.project-tags > li {
   font-size: 12px;
   padding: 5px 7px;
   border: 1px solid var(--line);
@@ -1001,4 +980,59 @@ html[data-motion='reduced'] *::after {
 .project-visual {
   width: 100%;
   min-width: 0;
+}
+
+/* Hide the system pointer only after the replacement has a painted position. */
+.custom-cursor {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 1000;
+  pointer-events: none;
+  color: #a5ffbc;
+}
+.custom-cursor > span {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  background:
+    linear-gradient(currentColor, currentColor) left top / 6px 1px,
+    linear-gradient(currentColor, currentColor) left top / 1px 6px,
+    linear-gradient(currentColor, currentColor) right bottom / 6px 1px,
+    linear-gradient(currentColor, currentColor) right bottom / 1px 6px;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 1px 2px #000);
+  transition: transform 120ms ease;
+}
+.custom-cursor > span::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  left: 7.5px;
+  top: 7.5px;
+  background: currentColor;
+}
+.custom-cursor[data-interactive='true'] > span {
+  transform: rotate(-45deg) scale(1.4);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  [data-motion='full'][data-custom-cursor='on'],
+  [data-motion='full'][data-custom-cursor='on'] * {
+    cursor: none !important;
+  }
+  [data-motion='full'] .custom-cursor[data-visible='true'] {
+    display: block;
+  }
+}
+@media (hover: none) {
+  .project-open {
+    opacity: 1;
+    transform: none;
+  }
 }

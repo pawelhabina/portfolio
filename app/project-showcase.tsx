@@ -1,13 +1,31 @@
 import { Typewriter } from './terminal-experience';
-import {
-  ArrowUpRight,
-  CodeXml,
-  Monitor,
-  Network,
-  Server,
-  ShieldCheck,
-  Terminal,
-} from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUpRight, CodeXml, Network, Terminal } from 'lucide-react';
+
+const projects = [
+  {
+    name: 'SeaByte',
+    url: 'https://www.seabyte.pl/',
+    domain: 'seabyte.pl',
+    screenshot: '/projects/seabyte.png',
+    alt: 'Strona SeaByte — serwis komputerowy i sprawdzanie statusu naprawy',
+    status: 'ONLINE',
+    description:
+      'Moja marka IT. Serwis komputerowy, usługi sieciowe i platforma obsługi napraw — od zgłoszenia po sprawdzenie statusu zlecenia.',
+    tags: ['React', 'Node.js', 'MySQL', 'Usługi IT'],
+  },
+  {
+    name: 'ParsHub',
+    url: 'https://parsifal.seabyte.pl/',
+    domain: 'parsifal.seabyte.pl',
+    screenshot: '/projects/parshub.png',
+    alt: 'Publiczny ekran logowania ParsHub — firmy, infrastruktura i zgłoszenia',
+    status: 'W ROZWOJU',
+    description:
+      'Aplikacja do zarządzania firmami i infrastrukturą IT. Komputery, serwery, zgłoszenia i agenci Windows w jednym środowisku. Dostęp po zalogowaniu.',
+    tags: ['React', 'TypeScript', 'MySQL', 'Infrastruktura IT'],
+  },
+];
 
 export function ProjectShowcase() {
   return (
@@ -26,172 +44,79 @@ export function ProjectShowcase() {
         </p>
       </div>
       <div className="project-grid">
-        <article className="project-card reveal">
-          <a
-            className="project-visual seabyte-visual"
-            href="https://www.seabyte.pl/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Otwórz stronę SeaByte w nowej karcie"
-          >
-            <span className="visual-corner">01 / WEB</span>
-            <span className="visual-launch">
-              <ArrowUpRight size={19} />
-            </span>
-            <div className="sea-wordmark">SeaByte</div>
-            <div className="sea-caption">TECHNOLOGIA. PO LUDZKU.</div>
-            <div className="sea-services" aria-hidden="true">
-              <span>
-                <Monitor />
-                Sprzęt
-              </span>
-              <span>
-                <Network />
-                Sieci
-              </span>
-              <span>
-                <CodeXml />
-                Web
-              </span>
-            </div>
-            <span className="visual-bottom">
-              SEABYTE.PL <span>↗</span>
-            </span>
-          </a>
-          <div className="project-info">
-            <div className="project-title">
-              <h3>SeaByte</h3>
-              <span className="project-status">
-                <i />
-                ONLINE
-              </span>
-            </div>
-            <p>
-              Moja marka IT. Strona prezentująca serwis sprzętu komputerowego i
-              usługi sieciowe — od pierwszego kontaktu do rozwiązania problemu.
-            </p>
-            <div className="project-tags">
-              <span>Strona internetowa</span>
-              <span>Usługi IT</span>
-            </div>
+        {projects.map((project, index) => (
+          <article className="project-card reveal" key={project.name}>
             <a
-              className="text-link"
-              href="https://www.seabyte.pl/"
+              className="project-preview"
+              href={project.url}
               target="_blank"
               rel="noreferrer"
+              aria-label={`Otwórz ${project.name} w nowej karcie`}
             >
-              Odwiedź seabyte.pl <ArrowUpRight size={17} />
+              <div className="project-window-bar" aria-hidden="true">
+                <span className="window-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span>{project.domain}</span>
+                <ArrowUpRight size={15} />
+              </div>
+              <div className="project-screenshot">
+                <Image
+                  src={project.screenshot}
+                  alt={project.alt}
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
+                  unoptimized
+                />
+                <span className="project-open" aria-hidden="true">
+                  Otwórz stronę <ArrowUpRight size={17} />
+                </span>
+              </div>
             </a>
-          </div>
-        </article>
-        <article className="project-card reveal">
-          <a
-            className="project-visual pars-visual"
-            href="#parshub-opis"
-            aria-label="Poznaj projekt ParsHub"
-          >
-            <span className="visual-corner">02 / APLIKACJA</span>
-            <span className="visual-launch">
-              <ArrowUpRight size={19} />
-            </span>
-            <div className="pars-wordmark">
-              <span className="pars-logomark">
-                P<span>↗</span>
-              </span>
-              ParsHub<span className="pars-wordmark-dot">.</span>
+            <div className="project-info">
+              <div className="project-title">
+                <h3>
+                  <span className="project-index" aria-hidden="true">
+                    0{index + 1} /{' '}
+                  </span>
+                  {project.name}
+                </h3>
+                <span
+                  className={`project-status${project.status === 'W ROZWOJU' ? ' in-progress' : ''}`}
+                >
+                  {project.status}
+                </span>
+              </div>
+              <p>{project.description}</p>
+              <ul className="project-tags" aria-label="Technologie i kategorie">
+                {project.tags.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+              <a
+                className="text-link"
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {project.domain} <ArrowUpRight size={17} />
+              </a>
             </div>
-            <div className="pars-caption">CAŁE IT. JEDNO MIEJSCE.</div>
-            <div className="pars-modules" aria-hidden="true">
-              <span>
-                <Server size={18} />
-                Infrastruktura
-              </span>
-              <span>
-                <Monitor size={18} />
-                Komputery
-              </span>
-              <span>
-                <ShieldCheck size={18} />
-                Agenci
-              </span>
-            </div>
-            <span className="visual-bottom">
-              PROJEKT W ROZWOJU <span>↗</span>
-            </span>
-          </a>
-          <div className="project-info" id="parshub-opis">
-            <div className="project-title">
-              <h3>ParsHub</h3>
-              <span className="project-status in-progress">
-                <i />W ROZWOJU
-              </span>
-            </div>
-            <p>
-              Aplikacja do zarządzania firmami i infrastrukturą IT. Komputery,
-              serwery, zgłoszenia i agenci Windows w jednym, spójnym środowisku.
-            </p>
-            <div className="project-tags">
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>MySQL</span>
-            </div>
-            <p className="project-note">
-              Aktualnie rozwijam <span>↗</span>
-            </p>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
-      <div className="more-projects reveal">
-        <div className="more-projects-heading">
-          <h3>Po godzinach też buduję.</h3>
-          <a
-            href="https://github.com/pawelhabina"
-            target="_blank"
-            rel="noreferrer"
-            className="text-link"
-          >
-            Więcej na GitHubie <CodeXml size={18} />
-          </a>
-        </div>
-        <a
-          className="project-row"
-          href="https://github.com/pawelhabina/69hitow"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="project-number">03</span>
-          <h4>69hitow</h4>
-          <span className="row-description">
-            Muzyczne krzyżówki w aplikacji desktopowej
-          </span>
-          <span className="row-tech">Electron / React</span>
-          <ArrowUpRight />
-        </a>
-        <a
-          className="project-row"
-          href="https://github.com/pawelhabina/sopockie-laweczki"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="project-number">04</span>
-          <h4>Sopockie Ławeczki</h4>
-          <span className="row-description">Projekt webowy dla Sopotu</span>
-          <span className="row-tech">JavaScript</span>
-          <ArrowUpRight />
-        </a>
-        <a
-          className="project-row"
-          href="https://github.com/pawelhabina/fox-evolution"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="project-number">05</span>
-          <h4>Fox Evolution</h4>
-          <span className="row-description">Gra o ewolucji lisów</span>
-          <span className="row-tech">JavaScript</span>
-          <ArrowUpRight />
-        </a>
-      </div>
+      <a
+        className="text-link all-projects-link"
+        href="https://github.com/pawelhabina"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Zajrzyj do mojego GitHuba <CodeXml size={18} />
+      </a>
     </>
   );
 }
