@@ -28,7 +28,7 @@ Skrypt sprawdza komplet plików, tworzy osobny katalog wersji i atomowo zmienia 
 
 DNS domeny kieruje przez Cloudflare do s1. Certyfikat Let's Encrypt dla `portfolio.seabyte.pl` korzysta z HTTP-01 i webroot `/var/www/letsencrypt`. Port 80 udostępnia challenge ACME, pozostały ruch przekierowuje na HTTPS. Systemowy `certbot.timer` odnawia certyfikat, a dedykowany deploy hook sprawdza konfigurację i przeładowuje Nginx. Klucze i dane konta ACME pozostają wyłącznie na serwerze.
 
-Po wdrożeniu sprawdź HTTPS, przekierowanie HTTP, obrazki, skrypty, tryb lekki i brak zmian na seabyte.pl. Nieznane adresy mają zwracać 404, a nie stronę główną ze statusem 200.
+Po wdrożeniu sprawdź HTTPS, przekierowanie HTTP, obrazki, skrypty, tryb lekki i brak zmian na seabyte.pl. Nieznane adresy mają zwracać 404, a nie stronę główną ze statusem 200. Nagłówek `Cache-Control: no-cache, no-transform` zapobiega modyfikacji HTML przez Cloudflare, która powodowałaby niezgodność hydracji React (np. przy obfuskacji adresu e-mail).
 
 ## Wycofanie wersji
 
