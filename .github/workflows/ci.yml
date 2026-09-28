@@ -19,3 +19,5 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run build
+      - run: npm run build:static
+      - run: test -s dist/client/index.html && test -s dist/client/404.html

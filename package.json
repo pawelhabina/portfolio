@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:static": "PORTFOLIO_TARGET=static vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint app lib tests vite.config.ts next.config.ts components/ui/switch.tsx",
     "format": "oxfmt",

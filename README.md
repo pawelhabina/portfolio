@@ -51,4 +51,6 @@ Opisy wykorzystują profil i repozytoria https://github.com/pawelhabina, stronę
 
 ## Hosting
 
-Projekt wykorzystuje React, TypeScript, Vinext i Tailwind CSS. `.openai/hosting.json` identyfikuje prywatny podgląd Sites. Repozytorium GitHub jest niezależną kopią kodu źródłowego; workflow CI niczego automatycznie nie publikuje.
+Produkcja działa pod https://portfolio.seabyte.pl na s1 jako statyczny eksport Vinext serwowany przez Nginx. `npm run build:static` generuje `dist/client` z HTML, skryptami, fontami i obrazami. Instrukcja wdrożenia i wycofania wersji: [deploy/README.md](deploy/README.md).
+
+`npm run build` nadal tworzy wersję Cloudflare Workers dla prywatnego podglądu Sites wskazanego w `.openai/hosting.json`. GitHub Actions sprawdza oba warianty; CI nie publikuje automatycznie na s1.

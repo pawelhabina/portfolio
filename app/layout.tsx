@@ -15,6 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio.seabyte.pl'),
+  alternates: { canonical: '/' },
   title: 'Paweł Habina — Linux, sieci i kod',
   description:
     'Portfolio Pawła Habiny. Informatyk i programista. SeaByte, ParsHub, Linux i web development.',
