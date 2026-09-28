@@ -47,7 +47,7 @@ GitHub Actions wykonuje te kontrole przy pushach na `main`, `codex/**` oraz w pu
 - `app/layout.tsx` — polskie metadane i lokalnie serwowane fonty.
 - `public/favicon.svg` — znak `ph.`.
 
-Opisy wykorzystują profil i repozytoria https://github.com/pawelhabina, stronę https://www.seabyte.pl/ oraz potwierdzony przez autora zakres ParsHub. Każdy projekt ma zrzut ekranu, link do strony i tagi. ParsHub jest projektem w rozwoju; zrzut przedstawia wyłącznie publiczny ekran logowania bez danych klientów. Wyróżnione: SeaByte, ParsHub, Sopockie Ławeczki i Fox Evolution. Pozostałe: Geo Helper i Gdynia 2126. Zrzuty dwóch ostatnich mogą pochodzić z lokalnego uruchomienia projektu; dostęp i docelowe linki są opisane w kafelkach. Realizacje Joomla dla profesjonalnestrony.eu zostaną dodane po wskazaniu adresów przez autora.
+Opisy wykorzystują profil i repozytoria https://github.com/pawelhabina, stronę https://www.seabyte.pl/ oraz potwierdzony przez autora zakres ParsHub. Każdy projekt ma zrzut ekranu, link do strony i tagi. ParsHub jest projektem w rozwoju; zrzut przedstawia wyłącznie publiczny ekran logowania bez danych klientów. Wyróżnione: SeaByte, ParsHub, Sopockie Ławeczki i Fox Evolution. Pozostałe: Geo Helper i Gdynia 2126. Screeny Sopockich Ławeczek i GeoHelper odświeżono 28.09.2026 z publicznych stron laweczki.sopot.pl i geohelper.seabyte.pl. Zrzut Gdyni 2126 pochodzi z lokalnego uruchomienia projektu; kafelek prowadzi do repozytorium. Realizacje Joomla dla profesjonalnestrony.eu zostaną dodane po wskazaniu adresów przez autora.
 
 ## Hosting
 

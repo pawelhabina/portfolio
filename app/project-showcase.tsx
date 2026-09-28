@@ -32,8 +32,8 @@ const projects = [
     featured: true,
     url: 'https://laweczki.sopot.pl/',
     domain: 'laweczki.sopot.pl',
-    screenshot: '/projects/sopockie-laweczki.webp',
-    alt: 'Sopockie Ławeczki — mapa Sopotu z lokalizacjami ławek i nawigacją aplikacji',
+    screenshot: '/projects/sopockie-laweczki.webp?v=20260928',
+    alt: 'Sopockie Ławeczki — strona główna z wyborem ławek i tras spacerowych',
     status: 'ONLINE',
     description:
       'Aplikacja zachęcająca do odkrywania Sopotu. Mapa ławek, spotkania i trasy spacerowe, uzupełnione panelem administracyjnym.',
@@ -54,14 +54,13 @@ const projects = [
   {
     name: 'Geo Helper',
     featured: false,
-    url: 'https://plonk-lab-geo-atlas.habina1993.chatgpt.site/',
-    domain: 'Geo Helper / atlas',
-    linkLabel: 'Otwórz prywatny podgląd',
-    screenshot: '/projects/geo-helper.webp',
-    alt: 'Geo Helper / Plonk Lab — strona atlasu wskazówek do GeoGuessr',
-    status: 'PRYWATNY PODGLĄD',
+    url: 'https://geohelper.seabyte.pl/',
+    domain: 'geohelper.seabyte.pl',
+    screenshot: '/projects/geo-helper.webp?v=20260928',
+    alt: 'SeaByte GeoHelper — atlas wskazówek do GeoGuessr z przykładem tropu z Ghany',
+    status: 'ONLINE',
     description:
-      'Atlas wskazówek do GeoGuessr: samochody, znaki, słupki, drogi i krajobrazy. Filtrowanie tropów pomaga rozpoznawać kraje. Podgląd wymaga uprawnień.',
+      'Atlas wskazówek do GeoGuessr: samochody, znaki, słupki, drogi i krajobrazy. Filtrowanie tropów pomaga rozpoznawać kraje.',
     tags: ['React', 'TypeScript', 'GeoGuessr', 'Edukacja'],
   },
   {
